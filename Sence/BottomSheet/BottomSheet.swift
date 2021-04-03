@@ -36,8 +36,8 @@ open class Bottomsheet {
             get { return overlayView.backgroundColor }
         }
         open var containerViewBackgroundColor = UIColor(white: 1, alpha: 1)
-        open let overlayView = UIView()
-        open let containerView = UIView()
+        public let overlayView = UIView()
+        public let containerView = UIView()
         // MARK: - Private property
         fileprivate let overlayViewPanGestureRecognizer: UIPanGestureRecognizer = {
             let gestureRecognizer = UIPanGestureRecognizer()
@@ -494,7 +494,7 @@ private extension BottomsheetController {
         guard isNeedLayout else { return }
         isNeedLayout = false
         if let bar = bar {
-            containerView.bringSubview(toFront: bar)
+            containerView.bringSubviewToFront(bar)
         }
         configureGesture()
         scrollView?.setContentOffset(CGPoint(x: 0, y: -(scrollView?.scrollIndicatorInsets.top ?? 0)), animated: false)
